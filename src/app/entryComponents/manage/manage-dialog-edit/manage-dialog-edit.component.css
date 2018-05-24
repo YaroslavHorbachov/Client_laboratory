@@ -1,0 +1,19 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.full-width {
+  width: 70%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-form-field {
+  margin: 1rem;
+}

@@ -1,0 +1,22 @@
+<app-dialog-card [title]="title" [subtitle]="subtitle">
+
+  <form #f="ngForm">
+    <div class="form-container">
+      <mat-form-field class="full-width">
+        <input matInput (change)="checkUnique()" placeholder="Position name" [formControl]="nameFormControl">
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Please enter name
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('min')">
+          Name must greater
+          <strong>3</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="savePosition(f.value)">Save</button>
+      <button mat-raised-button (click)="cancelPosition()">Cancel</button>
+    </div>
+  </form>
+</app-dialog-card>

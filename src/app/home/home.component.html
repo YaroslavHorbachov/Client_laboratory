@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="box1">
+
+    <mat-toolbar class="toolbar-box">
+
+      <mat-toolbar-row>
+        <b> Users </b>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+
+        <a mat-button routerLink='manage-users'>
+          <span>Manage Users</span>
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button routerLink='evaluations'>
+          <span>Evaluations</span>
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <b> Competence </b>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button routerLink='positions'>
+          <span>Positions</span>
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button routerLink='competence-groups'>
+          <span>Competence Groups</span>
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button routerLink='level-matrix'>
+          <span>Level Matrix</span>
+        </a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <a mat-button routerLink='competence-list'>
+          <span>Competence List</span>
+        </a>
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+
+  </div>
+  <div class='box2'>
+    <router-outlet></router-outlet>
+  </div>
+</div>

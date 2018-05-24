@@ -1,0 +1,25 @@
+<div class='flex-container'>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Type your credentials</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="form" #f="ngForm" (ngSubmit)='login(f.value)'>
+        <mat-form-field class="full-width">
+          <input matInput name='email' placeholder="Email" type='email' ngModel>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput name='password' placeholder="Password" type="password" ngModel>
+        </mat-form-field>
+        <div align='center'>
+
+          <button mat-raised-button color='primary'>Login</button>
+
+        </div>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

@@ -1,0 +1,39 @@
+<app-dialog-card [title]="title" [subtitle]="subtitle">
+
+  <form [formGroup]="userForm" (change)='checkForm()'>
+    <div class="form-container">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Name" formControlName="name" type="text">
+
+
+
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <textarea matInput placeholder="Description" formControlName='description' type="text"></textarea>
+
+
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width">
+
+        <mat-select placeholder="Groups" formControlName="group">
+          <mat-option *ngFor="let position of competenceGroups$ | async " [value]='position'>
+            {{ position }}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="saveCompetence()">Save</button>
+      <button mat-raised-button (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+
+
+</app-dialog-card>

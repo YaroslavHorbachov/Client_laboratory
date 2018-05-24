@@ -1,0 +1,55 @@
+<app-dialog-card [title]="title" [subtitle]="subtitle">
+
+  <form [formGroup]="userForm">
+    <div class="form-container">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="email" type="email">
+        <mat-error *ngIf="userForm.controls.email.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Fist Name" formControlName="firstName" (input)='hasErrorInputs()' type="text">
+        <mat-error *ngIf="userForm.controls.firstName.hasError('required')">
+          Please enter a first name
+        </mat-error>
+        <mat-error *ngIf="errorValidator.firstName.maxlength">
+          Name must less
+          <strong>25</strong>
+          <!-- CREATE DYNAMCILLY -->
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Last Name" formControlName="lastName" (input)='hasErrorInputs()' type="text">
+        <mat-error *ngIf="userForm.controls.lastName.hasError('required')">
+          Please enter a last name
+        </mat-error>
+        <mat-error *ngIf="errorValidator.lastName.maxlength">
+          Surname must less
+          <strong>25</strong>
+          <!-- CREATE DYNAMCILLY -->
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Positions" formControlName="position">
+          <mat-option *ngFor="let position of positions$ | async " [value]='position.value'>
+            {{ position.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="saveUser()">Save</button>
+      <button mat-raised-button (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+
+
+</app-dialog-card>
