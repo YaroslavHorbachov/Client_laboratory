@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
+import { PositionsService } from '../../../services/positions.service';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class PositionsDialogComponent implements OnInit {
   ]);
 
   constructor(
+    private _positions: PositionsService,
     public dialogRef: MatDialogRef<PositionsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
   }
@@ -33,7 +35,7 @@ export class PositionsDialogComponent implements OnInit {
     return true;
   }
   savePosition() {
-
+    this._positions
     setTimeout(() => this.cancelPosition(), 100);
   }
   cancelPosition() {

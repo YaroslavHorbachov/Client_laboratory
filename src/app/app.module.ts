@@ -21,6 +21,7 @@ import { CompetenceListEditComponent } from './entryComponents/competence-list/c
 import { CompetenceListAddComponent } from './entryComponents/competence-list/competence-list-dialog-add/competence-list-dialog-add.component';
 import { CompetenceGroupAddComponent } from './entryComponents/competence-group/competence-group-add/competence-group-add.component';
 import { CompetenceGroupEditComponent } from './entryComponents/competence-group/competence-group-edit/competence-group-edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CompetenceGroupEditComponent } from './entryComponents/competence-group
     CompetenceGroupEditComponent
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
