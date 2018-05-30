@@ -11,8 +11,8 @@ export class PositionsService {
     private _httpConfig: HttpService,
     private _h: HttpClient
   ) { }
-  savePositionRequest() {
-    return this._h.post(this._httpConfig.positionsPost.addUser, )
+  savePositionRequest(form) {
+    return this._h.post(this._httpConfig.positionsPost.addUser, form, this._httpConfig.HTTP_OPTIONS)
   }
 
 }
