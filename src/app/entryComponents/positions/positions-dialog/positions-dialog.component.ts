@@ -34,8 +34,8 @@ export class PositionsDialogComponent implements OnInit {
     console.log(this.nameFormControl);
     return true;
   }
-  savePosition() {
-    this._positions
+  public async savePosition(form) {
+    const response = await this._positions.savePositionRequest(form).toPromise();
     setTimeout(() => this.cancelPosition(), 100);
   }
   cancelPosition() {

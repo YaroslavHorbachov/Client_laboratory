@@ -1,6 +1,6 @@
 <app-dialog-card [title]="title" [subtitle]="subtitle">
 
-  <form #f="ngForm" class="">
+  <form>
     <div class="form-container">
       <mat-form-field class="full-width">
         <input matInput (change)="checkUnique()" placeholder="Position name" [formControl]="nameFormControl">
