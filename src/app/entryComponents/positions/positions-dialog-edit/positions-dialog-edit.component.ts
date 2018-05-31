@@ -1,13 +1,15 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import FormBuilderInit from '../../../models/formBuilder.model';
+import { formFields } from '../positions-dialog.form';
 
 @Component({
   selector: 'app-positions-dialog-edit',
   templateUrl: './positions-dialog-edit.component.html',
   styleUrls: ['./positions-dialog-edit.component.css']
 })
-export class PositionsDialogEditComponent implements OnInit {
+export class PositionsDialogEditComponent extends FormBuilderInit implements OnInit {
 
   title: string;
   subtitle: string;
@@ -20,21 +22,16 @@ export class PositionsDialogEditComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<PositionsDialogEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
-  }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(FormBuilder) fb: FormBuilder
+  ) { super(formFields(), fb); }
 
   ngOnInit() {
     this.title = this.data.title;
     this.subtitle = this.data.subtitle;
   }
 
-  checkUnique(value) {
-    console.log(this.nameFormControl);
-    return true;
-  }
-
   savePosition(value) {
-
     setTimeout(() => this.cancelPosition(), 100);
   }
 

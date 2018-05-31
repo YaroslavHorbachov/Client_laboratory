@@ -3,21 +3,28 @@ import { CommonModule } from '@angular/common';
 import { HeaderToolbarComponent } from './header-toolbar/header-toolbar.component';
 import { MaterialModule } from '../material/material.module';
 import { DialogCardComponent } from './dialog-card/dialog-card.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorControlComponent } from './error-control/error-control.component';
+import { PositionDialogComponent } from './position-dialog/position-dialog.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     HeaderToolbarComponent,
-    DialogCardComponent
+    DialogCardComponent,
+    ErrorControlComponent,
+    PositionDialogComponent
   ],
   exports: [
+    PositionDialogComponent,
     DialogCardComponent,
-    HeaderToolbarComponent
+    HeaderToolbarComponent,
+    ErrorControlComponent
   ]
 })
 export class BoilerplateModule {

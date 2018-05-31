@@ -1,0 +1,14 @@
+<form [formGroup]='form'>
+  <div class="form-container">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Position name" formControlName='name'>
+    </mat-form-field>
+    <ng-template [ngIf]='form.dirty || form.touched'>
+      <app-error-control [control]='form.controls.name.errors'></app-error-control>
+    </ng-template>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button (click)="savePosition()" [disabled]='valid'>Save</button>
+    <button mat-raised-button (click)="cancelPosition()">Cancel</button>
+  </div>
+</form>

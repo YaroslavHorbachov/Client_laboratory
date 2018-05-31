@@ -1,28 +1,26 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { PositionsService } from '../../../services/positions.service';
-
+import FormBuilderInit from '../../../models/formBuilder.model';
+import { formFields } from '../positions-dialog.form';
 
 @Component({
   selector: 'app-positions-dialog',
   templateUrl: './positions-dialog.component.html',
   styleUrls: ['./positions-dialog.component.css']
 })
-export class PositionsDialogComponent implements OnInit {
+export class PositionsDialogComponent extends FormBuilderInit implements OnInit {
   title: string;
   subtitle: string;
   isUnique: boolean;
-
-  nameFormControl = new FormControl('', [
-    Validators.required,
-    Validators.min(3)
-  ]);
-
+  name: any;
   constructor(
     private _positions: PositionsService,
     public dialogRef: MatDialogRef<PositionsDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(FormBuilder) fb: FormBuilder) {
+    super(formFields(), fb);
   }
 
   ngOnInit() {
@@ -30,17 +28,13 @@ export class PositionsDialogComponent implements OnInit {
     this.subtitle = this.data.subtitle;
   }
 
-  checkUnique(value) {
-    console.log(this.nameFormControl);
-    return true;
-  }
-  public async savePosition(form) {
-    const response = await this._positions.savePositionRequest(form).toPromise();
+  public async savePosition() {
+    const response = this.form.valid && await this._positions.savePositionRequest(this.form.value).toPromise();
     setTimeout(() => this.cancelPosition(), 100);
   }
-  cancelPosition() {
+  public cancelPosition() {
     this.dialogRef.close();
   }
 
-
 }
+
