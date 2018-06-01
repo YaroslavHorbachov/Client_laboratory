@@ -10,6 +10,8 @@ export class HttpService {
         'withCredentials': true
     };
     public positionsPost = {
-        addUser: `${this.root}${this.positions}/addUser`
-    }
+        addUser: `${this.root}${this.positions}/addUser`,
+        editUser: `${this.root}${this.positions}/editUser`,
+        users: `${this.root}${this.positions}/users`,
+    };
 }

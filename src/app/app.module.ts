@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     CompetenceListEditComponent,
     CompetenceListAddComponent,
     CompetenceGroupAddComponent,
-    CompetenceGroupEditComponent
+    CompetenceGroupEditComponent,
   ],
   imports: [
     HttpClientModule,
